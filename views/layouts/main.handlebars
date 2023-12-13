@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../public/css/reset.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/mobile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+   
+    <!-- CSS -->
+    <!-- ICONS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+    <!-- ICONS -->
+    <title>Gerência Fácil</title>
+</head>
+
+<body>
+    <header class="c-header">
+        <div class="c-header__logo">
+            <span class="c-header__icon">
+                <i class="ai-text-align-justified c-header--icon"></i>
+            </span>
+            {{!-- <div class="c-logo"></div> --}}
+            <a href="/home">
+                <h1 id="c-header__title">Gerência Fácil</h1>
+            </a>
+            <a href="">
+                <div class="c-header__profile">
+                
+                </div>
+            </a>
+        </div>
+        <nav class="c-header__nav">
+            <ul class="c-header__navlist">
+                <li>
+                    <a href="/home">
+                        <img src="/icons/akar-icons_home.svg" alt="icone de home" class="icon"> Início
+                    </a>
+                </li>
+                <li>
+                    <a href="/produtos">
+                        <img src="/icons/akar-icons_shipping-box-01.svg" alt="" class="icon"> Produtos
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/servicos">
+                        <img src="/icons/akar-icons_truck.svg" alt="" class="icon"> Serviços
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="/icons/akar-icons_clipboard.svg" alt="" class="icon"> Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="/funcionarios">
+                        <img src="/icons/akar-icons_funcionario.svg" alt="" class="icon"> Funcionários
+                    </a>
+                </li>
+                <li>
+                    <a href="/equipes">
+                        <img src="/icons/akar-icons_team.svg" alt="" class="icon"> Equipes
+                </li>
+            </ul>
+            <div class="c-header__logout">
+                <a href="/login/logout">
+                    <i class="ai-block"></i><span>Sair</span>
+                </a>
+            </div>
+        </nav>
+        <div class="test"></div>
+    </header>
+    <section class="c-section">
+        <div class="c-section__header">
+            {{!-- <a href="/dados">
+                <div class="c-header__profile">
+                
+                </div>
+            </a> --}}
+        </div>
+        {{{body}}}
+    </section>
+    
+
+<script src="../js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span id="productTitle" class="c-product--title">Visualizar Equipe</span>
+            <span class="c-product--icon">
+                <a href="/equipes">
+                    <i class="ai-cross"></i>
+                </a>
+            </span>
+        </div>
+        <div class="c-product__input">
+            <form action="/equipes/editar" method="post" class="c-product__input--inputs" id="productForm">
+                {{#each equipes}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome da Equipe</label>
+                    <input type="text" name="nome" id="input--name" value="{{nome}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Setor</label>
+                    <input type="text" name="setor" id="input--desc" value="{{setor}}" readonly required>
+                </div>
+                {{/each}}
+                <div class="c-product__input--desc input" id="funcionarioInput">
+    <label for="input--desc">Responsável</label>
+    <input type="text" name="responsavel" id="input--funcionario" value="{{equipes.responsavel}}" readonly required>
+  
+    <label for="input--desc">Funcionário 1</label>
+    <input type="text" name="funcionario1" id="input--funcionario" value="{{equipes.FuncionarioID1}}" readonly required>
+    
+    <label for="input--desc">Funcionário 2</label>
+    <input type="text" name="funcionario2" id="input--funcionario" value="{{equipes.FuncionarioID2}}" readonly required>
+    
+    <label for="input--desc">Funcionário 3</label>
+    <input type="text" name="funcionario3" id="input--funcionario" value="{{equipes.FuncionarioID3}}" readonly required>
+</div>
+
+ <div class="c-product__input--name input" id="selectResponsavel" style="display: none;">
+                    <label for="input--desc">Responsável</label>
+                    <select class="c-vendas-select-name" name="responsavel" required>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                    
+                    </select>
+                    
+                <div class="c-product__input--name input" id="selectFuncionarios" style="display: none;">
+                    <label for="input--desc">Funcionário 1</label>
+                    <select class="c-vendas-select-name" name="funcionario1" required>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                    
+                    </select>
+                    </div>
+                <div class="c-product__input--name input" id="selectFuncionarios2" style="display: none;">
+                    <label for="input--desc">Funcionário 2</label>
+                    <select class="c-vendas-select-name" name="funcionario2" required>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                    </select>
+                    </div>
+                    <div class="c-product__input--name input" id="selectFuncionarios3" style="display: none;">
+                    <label for="input--desc">Funcionário 3</label>
+                    <select class="c-vendas-select-name" name="funcionario3" required>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                    </select>
+                    </div>
+                </div>
+
+                <button type="button" class="btn__product--save" onclick="habilitarEdicao()">Editar</button>
+                <button type="submit" class="btn__product--save" style="display: none;">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function habilitarEdicao() {
+        var inputs = document.querySelectorAll('#productForm input');
+        inputs.forEach(function (input) {
+            input.removeAttribute('readonly');
+        });
+
+         var selectFuncionarios = document.getElementById('selectResponsavel');
+        selectFuncionarios.style.display = 'block';
+
+        var selectFuncionarios = document.getElementById('selectFuncionarios');
+        selectFuncionarios.style.display = 'block';
+
+        var selectFuncionarios = document.getElementById('selectFuncionarios2');
+        selectFuncionarios.style.display = 'block';
+
+        var selectFuncionarios = document.getElementById('selectFuncionarios3');
+        selectFuncionarios.style.display = 'block';
+        
+        var funcionarioInput = document.getElementById('funcionarioInput');
+        funcionarioInput.style.display = 'none';
+
+        var btnAtualizar = document.querySelector('#productForm button[type="submit"]');
+        btnAtualizar.style.display = 'inline-block';
+
+        var btnEditar = document.querySelector('#productForm button[type="button"]');
+        btnEditar.style.display = 'none';
+
+        var title = document.getElementById('productTitle');
+        title.innerText = 'Atualizar Equipe';
+    }
+
+    function confirmarExclusao(equipeId, equipeNome) {
+        var resposta = confirm("Tem certeza que deseja excluir o equipe '" + equipeNome + "' ?");
+        if (resposta) {
+            window.location.href = "/equipes/deletar/" + equipeId;
+        }
+    }
+
+</script>

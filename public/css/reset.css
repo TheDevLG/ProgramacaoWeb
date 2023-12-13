@@ -1,0 +1,60 @@
+/* =-=-=-=-=-=-= FONTS =-=-=-=-=-=-= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* =-=-=-=-=-=-= FONTS =-=-=-=-=-=-= */
+
+/* =-=-=-=-=-=-= RESET =-=-=-=-=-=-= */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;  
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    font-size: 62.5%;
+    --white: black; /*Letras*/
+    --details: #070707; /*Detalhes*/
+    --black1: #ECECEC; /*botao pesquisar*/
+    --black2: #f6f8f6; /*lateral e cima*/
+    --black3: #6ddcf3; /*fundo*/
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    background-color: var(--black3);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--white);
+}
+
+input {
+    border: none;
+}
+input:focus {
+    outline: none;
+}
+button {
+    font-family: 'Poppins';
+}
+
+*::-webkit-scrollbar {
+    width: 5px;    
+    height: 5px;
+ }
+  
+*::-webkit-scrollbar-track {
+    background: var(--black3);        
+}
+  
+*::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 100px solid var(--black1);   
+}
+/* =-=-=-=-=-=-= RESET =-=-=-=-=-=-= */

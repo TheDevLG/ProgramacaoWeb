@@ -1,0 +1,79 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span class="c-product--title">Atualizar Equipe</span>
+            <span class="c-product--icon"><a href="/equipes"><i
+                        class="ai-cross"></a></i></span>
+        </div>
+        <div class="c-product__input">
+            <form action="/equipes/editar" method="POST"
+                class="c-product__input--inputs">
+                {{#each equipes}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome da Equipe</label>
+                    <input type="text" name="nome" id="input--name"
+                        value="{{nome}}" required>
+                </div>
+
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Setor</label>
+                    <input type="text" name="setor" id="input--desc"
+                        value="{{setor}}" required>
+                </div>
+                
+                {{/each}}
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Responsável</label>
+                    <select class="c-vendas-select-name"
+                        id="selectFuncionarios" name="responsavel" required>
+                        <option value="">Selecione</option>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                        </select>
+                    <label for="input--desc">Funcionário 1</label>
+                    <select class="c-vendas-select-name"
+                        id="selectFuncionarios" name="funcionario1" required>
+                        <option value="">Selecione</option>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                        </select>
+                        <label for="input--desc">Funcionário 2</label>
+                    <select class="c-vendas-select-name"
+                        id="selectFuncionarios" name="funcionario2" required>
+                        <option value="">Selecione</option>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                        </select>
+                        <label for="input--desc">Funcionário 3</label>
+                    <select class="c-vendas-select-name"
+                        id="selectFuncionarios" name="funcionario3" required>
+                        <option value="">Selecione</option>
+                        {{#each funcionarios}}
+                        <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                        </select>
+                </div>
+                <button type="submit" class="btn__product--save">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function confirmarAtt(){
+    window.alert("Atualizado com sucesso!")
+    }
+
+    function confirmarExclusao(equipeId, equipeNome) {
+    var resposta = confirm("Tem certeza que deseja excluir o serviço '"+ equipeNome +"' ?");
+    if (resposta) {
+        window.location.href = "/equipes/deletar/" + equipeId;
+    }
+    }
+   
+</script>

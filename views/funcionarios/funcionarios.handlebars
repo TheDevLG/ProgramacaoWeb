@@ -1,0 +1,135 @@
+<body>
+    {{>_popup}}
+    <section class="c-section">
+        <div class="c-section__body">
+            <div class="c-section__user">
+                <span class="c-section__user--title">
+                    Funcionários
+                </span>
+                <button class="btn__addproduct">
+                    <i class="ai-circle-plus"></i>
+                    <span class="btn__addproduct--text">Funcionários</span>
+                </button>
+            </div>
+
+            <div class="c-modal__addproduct">
+                <div class="c-section__product">
+                    <div class="c-product__header">
+                        <span class="c-product--icon"></span>
+                        <span class="c-product--title">Adicionar Funcionário</span>
+                        <span class="c-product--icon"><i class="ai-cross"></i></span>
+                    </div>
+                    <div class="c-product__input">
+                        <form action="/funcionarios/add" method="POST" class="c-product__input--inputs">
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Nome do Funcionário</label>
+                                <input type="text" name="nome" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--desc input">
+                                <label for="input--desc">Apelido</label>
+                                <input type="text" name="apelido" id="input--desc" autocomplete="off">
+                            </div>
+                            <div class="c-product__input--desc input">
+                                <label for="input--desc">CPF   "11 dígitos"</label>
+                                <input type="number" name="cpf" id="input--desc" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Endereço</label>
+                                <input type="text" name="endereco" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Ofício</label>
+                                <input type="text" name="oficio" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Carga horária semanal</label>
+                                <input type="text" name="carga_horaria" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Email</label>
+                                <input type="text" name="email" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Telefone</label>
+                                <input type="number" name="telefone" id="input--name" autocomplete="off" required>
+                            </div>
+                            {{!-- <button class="btn__product--save">Salvar</button> --}}
+                            <button class="btn__product--save" type="submit" >Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="testeBack"></div>
+            <div class="c-section__table">
+                <form action="/funcionarios/filtroPesquisa" method="POST" class="c-table__search">
+                    <label for="c-table__search--input" class="c-table__search--text">Filtro</label>
+                    <div class="c-table__search--inputs">
+                        <input type="text" id="c-table__search--input" name="filtroPesquisa" placeholder="Pesquisar">
+                    </div>
+                    <button type="submit" class="btn-search "><i class="ai-search"></i></button>
+                </form>
+                {{>_msg}}
+                <div class="c-table">
+                    <table class="c-table__table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="colum-fixed row-fixed">Nome</th>
+                                <th>Apelido</th>
+                                <th>CPF</th>
+                                <th>Endereço</th>
+                                <th>Ofício</th>
+                                <th>Carga Horária <br>Semanal</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th class="btn-table"></th>
+                                {{!-- <th class="btn-table"></th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each funcionarios}}
+                            <tr>
+                                <td class="colum-fixed">{{nome}}</td>
+                                <td>{{apelido}}</td>
+                                <td>{{cpf}}</td>
+                                <td>{{endereco}}</td>
+                                <td>{{oficio}}</td>
+                                <td>{{carga_horaria_semanal}}</td>
+                                <td>{{email}}</td>
+                                <td>{{telefone}}</td>
+                                <td>
+                                     <a href="#" onclick="confirmarExclusaoFunc('{{id}}', '{{nome}}')">
+                                        <button class="btn btn__trash"> 
+                                         <i class="ai-trash-can icon-btn"></i>  
+                                         </button>
+                                    </a>
+                                    <a href="/funcionarios/editarFuncionario/{{id}}">
+                                        <button class="btn btn__edit">
+                                             <i class="ai-edit icon-btn"></i>{{!--Editar --}}
+                                        </button>
+                                    </a>
+                                     <a href="/funcionarios/VisualizarFuncionario/{{id}}">
+                                        <button class="btn btn__edit">
+                                             <i class="ai-eye-open icon-btn"></i>{{!--Editar --}}
+                                        </button>
+                                    </a>
+                                </td>
+                                {{!-- <td>
+                                    <a href="/funcionarios/editarFuncionario/{{id}}">
+                                        <button class="btn btn__edit">
+                                            <i class="ai-edit icon-btn"></i>Editar
+                                        </button>
+                                    </a>
+                                </td> --}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+    
+</body>
+<script>
+ </script>

@@ -1,0 +1,319 @@
+@media screen and (max-width: 1500px) {
+    .c-section__header {
+        height: 80px;
+    }
+    .c-header {
+        width: 300px;
+    }
+    #c-header__title {
+        font-size: 2.4rem;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .c-section {
+        width: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .overflow {
+        overflow: hidden;
+    }
+    /* =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= */
+    .c-header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0 18px;
+        background-color: var(--black3);
+        height: 60px;
+        z-index: 3;
+        gap: 0;
+        top: -1px;
+    }
+
+    .c-header__logo .c-logo {
+        display: none;
+    }
+    .c-header__logo {
+        height: 60px;
+        justify-content: space-between;
+        width: 100%;
+        box-shadow: 0px 10px 20px -10px #161616;
+    }
+    .c-header__icon {
+        width: 24px;
+        display: block;
+    }
+    .c-header--icon {
+        font-size: 2.4rem;
+    }
+    /* =-=-=-=-=-=-= NAVBAR =-=-=-=-=-=-= */
+    .c-header__nav {
+        z-index: 2;
+        position: fixed;
+        top: 60px;
+        width: 80%;
+        height: calc(100% - 60px);
+        left: -100%;
+        animation: 1s ease closeNavlist;
+        background-color: var(--black3);
+    }
+    
+    .c-header__navlist {
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .c-header__logout a {
+        padding: 18px 18px;
+    }
+
+    .c-header__nav.openNavlist {
+        left: 0;
+        animation: 1s ease openNavlist;
+    }
+
+    @keyframes openNavlist {
+        from {
+            left: -100%;
+        }
+        to {
+            left: 0;
+        }
+    }
+
+    @keyframes closeNavlist {
+        from {
+            left: 0;
+        }
+        to {
+            left: -100%;
+        }
+    }
+
+    .test {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: var(black3);
+        backdrop-filter: blur(1px);
+        z-index: 1;
+        position: fixed;
+        top: 60px;
+        animation: 0.5s ease testClose;
+    }
+    .test.openTest {
+        display: block;
+        animation: 0.5s ease testOpen;
+    }
+    @keyframes testClose {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes testOpen {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* =-=-=-=-=-=-= NAVBAR =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= SECTION - BODY =-=-=-=-=-=-= */
+    .c-header__profile {
+        margin: 0;
+        position: initial;
+        width: 40px;
+        height: 40px;
+    }
+    .c-section__header {
+        display: none;
+    }
+    .c-section__body {
+        gap: 3rem;
+    }
+    
+    /* =-=-=-=-=-=-= USER =-=-=-=-=-=-= */
+    .c-section__user--profile {
+        display: none;
+    }
+    .c-section__user--title {
+        display: block;
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+    /* =-=-=-=-=-=-= BTN =-=-=-=-=-=-= */
+    .ai-circle-plus {
+        font-size: 1.8rem;
+    }
+    .btn__addproduct--text {
+        font-size: 1.4rem;
+    }
+    /* =-=-=-=-=-=-= BTN =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= USER =-=-=-=-=-=-= */
+
+    /* =-=-=-=-=-=-= PRODUCTS =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= ADD PRODUCT =-=-=-=-=-=-= */
+    .c-product__inputs {
+        width: 100%;
+        padding: 0 18px;
+    }
+    /* =-=-=-=-=-=-= ADD PRODUCT =-=-=-=-=-=-= */
+    .c-modal__addproduct {
+        width: 100%;
+    }
+    /* =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= */
+    .c-product__header {
+        display: flex;
+        justify-content: space-between ; 
+    }
+    .c-product--title {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    .c-product--icon {
+        width: 18px;
+    }
+    .ai-cross {
+        font-size: 1.6rem;
+    }
+    /* =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= */
+
+    /* =-=-=-=-=-=-= INPUTS =-=-=-=-=-=-= */
+    .c-product__inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    label {
+        /* font-size: 1.4rem; */
+        justify-content: center;
+    }
+    .input {
+        display: flex;
+        justify-content: space-between;
+        gap: 4px;
+    }
+    .inputs label {
+        align-items: center;
+    }
+    .inputs {
+        display: flex;
+    }
+    /* =-=-=-=-=-=-= BTN =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= BTN =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= INPUTS =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= PRODUCTS =-=-=-=-=-=-= */
+
+    /* =-=-=-=-=-=-= TABLE =-=-=-=-=-=-= */
+    .c-table {
+        max-height: 590px;
+    }
+    .c-table__search {
+        width: 100%;
+    }
+    .c-section__table {
+        gap: 1.8rem;
+    }
+    .c-table__table {
+        width: 720px;
+        position: relative;
+    }
+    th {
+        white-space: nowrap;
+    }
+    td {
+        white-space: normal;
+        font-size: 1.3rem;
+        font-weight: 400;
+        min-width: 130px;
+    }
+    #id {
+        max-width: 50px !important;
+        min-width: 50px !important;
+    }
+    /* =-=-=-=-=-=-= TABLE =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= SECTION - BODY =-=-=-=-=-=-= */
+    /* =-=-=-=-=-=-= CLIENT =-=-=-=-=-=-= */
+    .c-section__clients {
+        padding: 0 18px;
+    }
+    /* =-=-=-=-=-=-= CLIENT =-=-=-=-=-=-= */
+
+    /* Vendas */
+    .c-vendas__produtos {
+        flex-direction: column;
+        max-height: 610px;
+    }
+    .btn__addProduto {
+        width: 100%;
+    }
+    .c-vendas {
+        padding: 0 18px 78px 18px;
+    }
+    .c-vendas__cliente {
+        grid-template-columns: 1fr;
+    }
+    #detail {
+        height: 3px;
+        width: 100%;
+        margin: 32px 0;
+        background-color: var(--details);
+    }
+    .c-produtos__add {
+        max-width: 380px;
+        width: 100%;
+    }
+    .c-produtos__add div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    /* Vendas */
+    /* Editar produtos */
+    .c-modal__editproduct {
+        width: 100%;
+    }
+    /* Editar produtos */
+
+    /* Home */
+    .ai {
+        min-width: 35px;
+    }
+    .rv, .rc {
+        display: none;
+    }
+    .scroll {
+        overflow-x: scroll;
+    }
+    .scroll::-webkit-scrollbar {
+        height: 0;
+    }
+
+    .c-home__infos {
+        display: flex;
+        flex-direction: column;
+    }
+    .vt, .ct, .v {
+        padding: 20px 15px;
+        width: 206px;
+    }
+    /* Home */
+    /* Folha Pedido */
+    .c-nota__logo {
+        display: none;
+    }
+    /* Folha Pedido */
+}

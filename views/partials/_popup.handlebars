@@ -1,0 +1,21 @@
+{{#if sessionPopup}}
+<div class="">
+    
+    <div class="c-modal__popup">
+        <div class="c-section__product">
+            <div class="c-product__header">
+                <span class="c-product--icon"></span>
+                    <span style="color:{{popupMessage.color}}" class="c-product--title">{{popupMessage.message.type}}</span>
+                <span class="c-product--icon"><i class="close-popup">X</i></span>
+            </div>
+            <div class="c-product__input">
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">{{popupMessage.message.message}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blackBackgroundkPopup"></div>
+    <script src="../js/popup/popup.js"></script>
+</div>
+{{/if}}

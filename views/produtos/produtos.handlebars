@@ -1,0 +1,102 @@
+<body>
+    {{>_popup}}
+    <section class="c-section">
+        <div class="c-section__body">
+            <div class="c-section__user">
+                <span class="c-section__user--title">
+                    Produtos
+                </span>
+                <button class="btn__addproduct">
+                    <i class="ai-circle-plus"></i>
+                    <span class="btn__addproduct--text">Produto</span>
+                </button>
+            </div>
+
+            <div class="c-modal__addproduct">
+                <div class="c-section__product">
+                    <div class="c-product__header">
+                        <span class="c-product--icon"></span>
+                        <span class="c-product--title">Adicionar Produto</span>
+                        <span class="c-product--icon"><i class="ai-cross"></i></span>
+                    </div>
+                    <div class="c-product__input">
+                        <form action="/produtos/add" method="POST" class="c-product__input--inputs">
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Nome do Produto</label>
+                                <input type="text" name="nome" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--desc input">
+                                <label for="input--desc">Categoria</label>
+                                <input type="text" name="categoria" id="input--desc" autocomplete="off" required>
+                            </div>
+                           
+                            {{!-- <button class="btn__product--save">Salvar</button> --}}
+                            <button class="btn__product--save" type="submit"  >Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="testeBack"></div>
+            <div class="c-section__table">
+                <form action="/produtos/filtroPesquisa" method="POST" class="c-table__search">
+                    <label for="c-table__search--input" class="c-table__search--text">Filtro</label>
+                    <div class="c-table__search--inputs">
+                        <input type="text" id="c-table__search--input" name="filtroPesquisa" placeholder="Pesquisar">
+                    </div>
+                    <button type="submit" class="btn-search "><i class="ai-search"></i></button>
+                </form>
+                {{>_msg}}
+                <div class="c-table">
+                    <table class="c-table__table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="colum-fixed row-fixed">Nome</th>
+                                <th>Categoria</th>
+                            
+                                <th class="btn-table"></th>
+                                {{!-- <th class="btn-table"></th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each produtos}}
+                            <tr>
+                                <td class="colum-fixed">{{nome}}</td>
+                                <td>{{categoria}}</td>
+                                
+                                <td>
+                                     <a href="#" onclick="confirmarExclusao('{{id}}', '{{nome}}')">
+                                        <button class="btn btn__trash"> 
+                                         <i class="ai-trash-can icon-btn"></i>  
+                                         </button>
+                                    </a>
+                                    <a href="/produtos/editarProduto/{{id}}">
+                                        <button class="btn btn__edit">
+                                             <i class="ai-edit icon-btn"></i>{{!--Editar --}}
+                                        </button>
+                                    </a>
+                                     <a href="/produtos/visualizarProduto/{{id}}">
+                                        <button class="btn btn__edit">
+                                            <i class="ai-eye-open icon-btn"></i>{{!--Visualizar --}}
+                                        </button>
+                                     </a>
+                                    </a>
+                                </td>
+                                {{!-- <td>
+                                    <a href="/produtos/editarProduto/{{id}}">
+                                        <button class="btn btn__edit">
+                                            <i class="ai-edit icon-btn"></i>Editar
+                                        </button>
+                                    </a>
+                                </td> --}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+</body>
+<script>
+ </script>

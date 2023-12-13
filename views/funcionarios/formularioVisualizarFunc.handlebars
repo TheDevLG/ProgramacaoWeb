@@ -1,0 +1,81 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span id="productTitle" class="c-product--title">Visualizar Funcionário</span>
+            <span class="c-product--icon">
+                <a href="/funcionarios">
+                    <i class="ai-cross"></i>
+                </a>
+            </span>
+        </div>
+        <div class="c-product__input">
+            <form action="/funcionarios/editar" method="post" class="c-product__input--inputs" id="productForm">
+                {{#each funcionario}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome do Funcionário</label>
+                    <input type="text" name="nome" id="input--name" value="{{nome}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Apelido</label>
+                    <input type="text" name="apelido" id="input--desc" value="{{apelido}}" readonly required>
+                </div>
+                <div class="c-product__inputs--price input">
+                        <label for="input--price">CPF</label>
+                        <input type="number" name="cpf"
+                            id="input--price" value="{{cpf}}" readonly>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Endereço</label>
+                    <input type="text" name="endereco" id="input--desc" value="{{endereco}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Ofício</label>
+                    <input type="text" name="oficio" id="input--desc" value="{{oficio}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Carga Horária Semanal</label>
+                    <input type="text" name="carga_horaria_semanal" id="input--desc" value="{{carga_horaria_semanal}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Email</label>
+                    <input type="text" name="email" id="input--desc" value="{{email}}" readonly required>
+                </div>
+                <div class="c-product__inputs--price input">
+                        <label for="input--price">Telefone</label>
+                        <input type="number" name="telefone"
+                            id="input--price" value="{{telefone}}" readonly>
+                <button type="button" class="btn__product--save" onclick="habilitarEdicao()">Editar</button>
+                <button type="submit" class="btn__product--save" style="display: none;">Atualizar</button>
+                <button type="button" onclick="confirmarExclusao('{{id}}', '{{nome}}')" class="btn__product--save">Excluir</button>
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function habilitarEdicao() {
+        var inputs = document.querySelectorAll('#productForm input');
+        inputs.forEach(function (input) {
+            input.removeAttribute('readonly');
+        });
+
+        var btnAtualizar = document.querySelector('#productForm button[type="submit"]');
+        btnAtualizar.style.display = 'inline-block';
+
+        var btnEditar = document.querySelector('#productForm button[type="button"]');
+        btnEditar.style.display = 'none';
+
+        var title = document.getElementById('productTitle');
+        title.innerText = 'Atualizar Funcionário';
+    }
+
+    function confirmarExclusao(funcionarioId, funcionarioNome) {
+        var resposta = confirm("Tem certeza que deseja excluir o funcionario '" + funcionarioNome + "' ?");
+        if (resposta) {
+            window.location.href = "/funcionarios/deletar/" + funcionarioId;
+        }
+    }
+   
+</script>

@@ -1,0 +1,61 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span id="productTitle" class="c-product--title">Visualizar Serviço</span>
+            <span class="c-product--icon">
+                <a href="/servicos">
+                    <i class="ai-cross"></i>
+                </a>
+            </span>
+        </div>
+        <div class="c-product__input">
+            <form action="/servicos/editar" method="post" class="c-product__input--inputs" id="productForm">
+                {{#each servico}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome do Serviço</label>
+                    <input type="text" name="nome" id="input--name" value="{{nome}}" readonly required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Tipo</label>
+                    <input type="text" name="tipo" id="input--desc" value="{{tipo}}" readonly required>
+                </div>
+                <div class="c-product__inputs--price input">
+                        <label for="input--price">Valor</label>
+                        <input type="number" step=".1" name="valor"
+                            id="input--price" value="{{valor}}" readonly>
+                </div>
+                <button type="button" class="btn__product--save" onclick="habilitarEdicao()">Editar</button>
+                <button type="submit" class="btn__product--save" style="display: none;">Atualizar</button>
+                <button type="button" onclick="confirmarExclusao('{{id}}', '{{nome}}')" class="btn__product--save">Excluir</button>
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function habilitarEdicao() {
+        var inputs = document.querySelectorAll('#productForm input');
+        inputs.forEach(function (input) {
+            input.removeAttribute('readonly');
+        });
+
+        var btnAtualizar = document.querySelector('#productForm button[type="submit"]');
+        btnAtualizar.style.display = 'inline-block';
+
+        var btnEditar = document.querySelector('#productForm button[type="button"]');
+        btnEditar.style.display = 'none';
+
+        var title = document.getElementById('productTitle');
+        title.innerText = 'Atualizar Produto';
+    }
+
+    function confirmarExclusao(servicoId, servicoNome) {
+        var resposta = confirm("Tem certeza que deseja excluir o produto '" + servicoNome + "' ?");
+        if (resposta) {
+            window.location.href = "/servicos/deletar/" + servicoId;
+        }
+    }
+   
+</script>

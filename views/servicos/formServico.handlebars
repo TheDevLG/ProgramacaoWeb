@@ -1,0 +1,50 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span class="c-product--title">Atualizar Serviço</span>
+            <span class="c-product--icon"><a href="/servicos"><i
+                        class="ai-cross"></a></i></span>
+        </div>
+        <div class="c-product__input">
+            <form action="/servicos/editar" method="POST"
+                class="c-product__input--inputs">
+                {{#each servico}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome do Serviço</label>
+                    <input type="text" name="nome" id="input--name"
+                        value="{{nome}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Tipo</label>
+                    <input type="text" name="tipo" id="input--desc"
+                        value="{{tipo}}" required>
+                </div>
+                <div class="c-product__inputs--price input">
+                        <label for="input--price"><div class="c-product__inputs--price input">
+                        </div>Valor</label>
+                        <input type="number" step=".1" name="valor"
+                            id="input--price" value="{{valor}}" required>
+                </div>
+                <button type="submit" class="btn__product--save">Atualizar</button>
+                
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function confirmarAtt(){
+    window.alert("Atualizado com sucesso!")
+    }
+
+    function confirmarExclusao(servicoId, servicoNome) {
+    var resposta = confirm("Tem certeza que deseja excluir o serviço '"+ servicoNome +"' ?");
+    if (resposta) {
+        window.location.href = "/servicos/deletar/" + servicoId;
+    }
+    }
+   
+</script>

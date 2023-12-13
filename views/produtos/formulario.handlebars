@@ -1,0 +1,50 @@
+<head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+</head>
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span class="c-product--title">Atualizar Produto</span>
+            <span class="c-product--icon"><a href="/produtos"><i
+                        class="ai-cross"></a></i></span>
+        </div>
+        <div class="c-product__input">
+            <form action="/produtos/editar" method="POST"
+                class="c-product__input--inputs">
+                {{#each produto}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome do Produto</label>
+                    <input type="text" name="nome" id="input--name"
+                        value="{{nome}}"required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Categoria</label>
+                    <input type="text" name="categoria" id="input--desc"
+                        value="{{categoria}}"required>
+                </div>
+                
+                <button type="submit"  class="btn__product--save">Atualizar</button>
+                
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function confirmarAtt(){
+    window.alert("Atualizado com sucesso!")
+    }
+
+    function confirmarExclusao(produtoId, produtoNome) {
+    var resposta = confirm("Tem certeza que deseja excluir o produto '"+ produtoNome +"' ?");
+    if (resposta) {
+        window.location.href = "/produtos/deletar/" + produtoId;
+    }
+    }
+
+  
+</script>

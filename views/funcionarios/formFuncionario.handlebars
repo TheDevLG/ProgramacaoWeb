@@ -1,0 +1,75 @@
+<div class="c-modal__editproduct editproduct">
+    {{>_popup}}
+    <div class="c-section__product">
+        <div class="c-product__header">
+            <span class="c-product--icon"></span>
+            <span class="c-product--title">Atualizar Funcionário</span>
+            <span class="c-product--icon"><a href="/funcionarios"><i
+                        class="ai-cross"></a></i></span>
+        </div>
+        <div class="c-product__input">
+            <form action="/funcionarios/editar" method="POST"
+                class="c-product__input--inputs">
+                {{#each funcionario}}
+                <div class="c-product__input--name input">
+                    <label for="input--name">Nome do Funcionário</label>
+                    <input type="text" name="nome" id="input--name"
+                        value="{{nome}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Apelido</label>
+                    <input type="text" name="apelido" id="input--desc"
+                        value="{{apelido}}" required>
+                </div>
+                <div class="c-product__inputs--price input">
+                        <label for="input--price"><div class="c-product__inputs--price input">
+                        </div>CPF</label>
+                        <input type="number" name="cpf"
+                            id="input--price" value="{{cpf}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Endereço</label>
+                    <input type="text" name="endereco" id="input--desc"
+                        value="{{endereco}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Ofício</label>
+                    <input type="text" name="oficio" id="input--desc"
+                        value="{{oficio}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Carga Horária Semanal</label>
+                    <input type="text" name="carga_horaria_semanal" id="input--desc"
+                        value="{{carga_horaria_semanal}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Email</label>
+                    <input type="text" name="email" id="input--desc"
+                        value="{{email}}" required>
+                </div>
+                <div class="c-product__input--desc input">
+                    <label for="input--desc">Telefone</label>
+                    <input type="number" name="telefone" id="input--desc"
+                        value="{{telefone}}" required>
+                </div>
+                <button type="submit" class="btn__product--save">Atualizar</button>
+                
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function confirmarAtt(){
+    window.alert("Atualizado com sucesso!")
+    }
+
+    function confirmarExclusao(servicoId, servicoNome) {
+    var resposta = confirm("Tem certeza que deseja excluir o serviço '"+ servicoNome +"' ?");
+    if (resposta) {
+        window.location.href = "/funcionarios/deletar/" + servicoId;
+    }
+    }
+   
+</script>

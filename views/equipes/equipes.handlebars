@@ -1,0 +1,119 @@
+<body>
+    {{>_popup}}
+    <section class="c-section">
+        <div class="c-section__body">
+            <div class="c-section__user">
+                <span class="c-section__user--title">
+                    Equipes
+                </span>
+                <button class="btn__addproduct">
+                    <i class="ai-circle-plus"></i>
+                    <span class="btn__addproduct--text">Equipe</span>
+                </button>
+            </div>
+
+            <div class="c-modal__addproduct">
+                <div class="c-section__product">
+                    <div class="c-product__header">
+                        <span class="c-product--icon"></span>
+                        <span class="c-product--title">Adicionar Equipe</span>
+                        <span class="c-product--icon"><i class="ai-cross"></i></span>
+                    </div>
+                    <div class="c-product__input">
+                        <form action="/equipes/add" method="POST" class="c-product__input--inputs">
+                            <div class="c-product__input--name input">
+                                <label for="input--name">Nome da Equipe</label>
+                                <input type="text" name="nome" id="input--name" autocomplete="off" required>
+                            </div>
+                            <div class="c-product__input--desc input">
+                                <label for="input--desc">Setor</label>
+                                <input type="text" name="setor" id="input--desc" autocomplete="off">
+                            </div>
+                            <div class="c-product__input--name input">
+
+                                <label for="input--desc">Responsável</label>
+                                <select class="c-vendas-select-name"
+                                    id="selectFuncionarios" name="responsavel" required >
+                                    
+                                    {{#each funcionarios}}
+                                    <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                                    {{/each}}
+                                </select>
+                                <label for="input--desc">Funcionario 1</label>
+                                <select class="c-vendas-select-name"
+                                    id="selectFuncionarios" name="funcionario1" required >
+                                    <option value="">Selecione</option>
+                                    {{#each funcionarios}}
+                                    <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                                    {{/each}}
+                                </select>
+                                <label for="input--desc">Funcionario 2</label>
+                                <select class="c-vendas-select-name"
+                                    id="selectFuncionarios" name="funcionario2" required >
+                                     <option value="">Selecione</option>
+                                    {{#each funcionarios}}
+                                    <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                                    {{/each}}
+                                </select>
+                                <label for="input--desc">Funcionario 3</label>
+                                <select class="c-vendas-select-name"
+                                    id="selectFuncionarios" name="funcionario3" required >
+                                    <option value="">Selecione</option>
+                                    {{#each funcionarios}}
+                                    <option name="{{nome}}" value="{{id}}">{{nome}}</option>
+                                    {{/each}}
+                                </select>                                
+                              
+                            </div>
+                            {{!-- <button class="btn__product--save">Salvar</button> --}}
+                            <button class="btn__product--save" type="submit">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="testeBack"></div>
+            <div class="c-section__table">
+                <form action="/equipes/filtroPesquisa" method="POST" class="c-table__search">
+                    <label for="c-table__search--input" class="c-table__search--text">Filtro</label>
+                    <div class="c-table__search--inputs">
+                        <input type="text" id="c-table__search--input" name="filtroPesquisa" placeholder="Pesquisar">
+                    </div>
+                    <button type="submit" class="btn-search "><i class="ai-search"></i></button>
+                </form>
+                {{>_msg}}
+                <div class="c-table">
+                    <table class="c-table__table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="colum-fixed row-fixed">Nome da <br>Equipe</th>
+                                <th>Setor</th>
+                                <th>Responsável</th>
+                                <th class="btn-table"></th>
+                                {{!-- <th class="btn-table"></th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each equipes}}
+                            <tr>
+                                <td class="colum-fixed">{{nome}}</td>
+                                <td>{{setor}}</td>
+                                <td>{{responsavel}}</td>
+                                <td>
+                                    <a href="#" onclick="confirmarExclusaoEquipe('{{id}}', '{{nome}}')">
+                                         <button class="btn btn__trash"> 
+                                             <i class="ai-trash-can icon-btn"></i>{{!--Deletar --}}
+                                        </button>
+                                    </a>
+
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+</body>
+<script>
+   
+</script>
